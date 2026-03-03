@@ -334,6 +334,17 @@ a:hover {
     border-color: var(--azure-blue);
 }
 
+.cert-card.highlight {
+    border-color: #ffd700;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+    transform: scale(1.02);
+}
+
+.cert-card.highlight:hover {
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+    transform: scale(1.04) translateY(-5px);
+}
+
 .project-card a {
     display: inline-block;
     font-weight: 600;
