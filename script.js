@@ -58,17 +58,20 @@
 })();
 
 
-/* ---- Navbar: Scroll shrink + active section ---- */
+/* ---- Navbar: Scroll shrink + active section + scroll-cue hide ---- */
 (function initNavbar() {
-  const navbar  = document.getElementById('navbar');
-  const links   = document.querySelectorAll('.nav-link');
+  const navbar   = document.getElementById('navbar');
+  const links    = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id], footer[id]');
+  const scrollCue = document.getElementById('scroll-cue');
 
   function updateNav() {
-    if (window.scrollY > 60) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+    const scrolled = window.scrollY > 60;
+    navbar.classList.toggle('scrolled', scrolled);
+
+    // Hide scroll cue once user scrolls
+    if (scrollCue) {
+      scrollCue.classList.toggle('hidden', window.scrollY > 80);
     }
 
     let current = '';
@@ -90,6 +93,7 @@
 (function initMobileMenu() {
   const toggle  = document.getElementById('menu-toggle');
   const navlist = document.getElementById('navlist');
+  const navbar  = document.getElementById('navbar');
 
   if (!toggle || !navlist) return;
 
@@ -110,7 +114,7 @@
 
   // Close on outside click
   document.addEventListener('click', e => {
-    if (!navbar.contains(e.target)) {
+    if (navbar && !navbar.contains(e.target)) {
       navlist.classList.remove('open');
       toggle.classList.remove('open');
     }

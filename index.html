@@ -23,16 +23,15 @@
 
     <!-- ===== NAV ===== -->
     <nav class="navbar" id="navbar">
-        <a href="#home" class="logo">
-            <span class="logo-bracket">[</span>SG<span class="logo-dot">.</span><span class="logo-accent">cloud</span><span class="logo-bracket">]</span>
-        </a>
+        <a href="#home" class="logo">SGP</a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
             <span></span><span></span><span></span>
         </button>
         <ul class="navlist" id="navlist">
             <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
             <li><a href="#about" class="nav-link" data-section="about">About</a></li>
-            <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+            <li><a href="#education" class="nav-link" data-section="education">Education</a></li>
+            <li><a href="#experience" class="nav-link" data-section="experience">Internships</a></li>
             <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
             <li><a href="#certifications" class="nav-link" data-section="certifications">Certs</a></li>
             <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
@@ -99,7 +98,7 @@
                 <div class="data-packet pkt-4"></div>
             </div>
         </div>
-        <div class="scroll-cue">
+        <div class="scroll-cue" id="scroll-cue">
             <span>scroll</span>
             <div class="scroll-line"></div>
         </div>
@@ -180,38 +179,92 @@
                         <div class="stat-icon"><i class='bx bx-time'></i></div>
                         <div class="stat-info">
                             <span class="stat-num">1yr+</span>
-                            <span class="stat-label">Industry Experience</span>
+                            <span class="stat-label">Internship Experience</span>
                         </div>
                     </div>
-                    <!-- Education inside about -->
-                    <div class="education-mini reveal">
-                        <div class="edu-title">Education</div>
-                        <div class="edu-item">
-                            <span class="edu-degree">B.E. Computer Science</span>
-                            <span class="edu-meta">VTU · 2021–2025 · CGPA 7.54</span>
-                        </div>
-                        <div class="edu-item">
-                            <span class="edu-degree">Pre-University (PCMB)</span>
-                            <span class="edu-meta">Shree Swaminarayan PU · 83.4%</span>
-                        </div>
-                        <div class="edu-item">
-                            <span class="edu-degree">High School (ICSE)</span>
-                            <span class="edu-meta">Bethel International · 76.67%</span>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== EXPERIENCE ===== -->
+    <!-- ===== EDUCATION ===== -->
+    <section class="section edu-section" id="education">
+        <div class="container">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">02 / EDUCATION</span>
+            </div>
+            <h2 class="section-title">Academic <span class="highlight">Background</span></h2>
+
+            <div class="edu-timeline">
+
+                <div class="edu-tl-item reveal">
+                    <div class="edu-tl-left">
+                        <span class="edu-tl-year">2021 – 2025</span>
+                    </div>
+                    <div class="edu-tl-marker">
+                        <div class="edu-tl-dot active-dot"></div>
+                        <div class="edu-tl-line"></div>
+                    </div>
+                    <div class="edu-tl-content">
+                        <span class="edu-tl-badge">B.E. Computer Science & Engineering</span>
+                        <h4>Visvesvaraya Technological University (VTU)</h4>
+                        <div class="edu-tl-meta">
+                            <span class="edu-grade"><i class='bx bx-bar-chart-alt-2'></i> CGPA: 7.54</span>
+                            <span class="edu-board"><i class='bx bx-book'></i> VTU, Belagavi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="edu-tl-item reveal">
+                    <div class="edu-tl-left">
+                        <span class="edu-tl-year">2019 – 2021</span>
+                    </div>
+                    <div class="edu-tl-marker">
+                        <div class="edu-tl-dot"></div>
+                        <div class="edu-tl-line"></div>
+                    </div>
+                    <div class="edu-tl-content">
+                        <span class="edu-tl-badge">Pre-University (PCMB)</span>
+                        <h4>Shree Swaminarayan Gurukul Residential PU College</h4>
+                        <div class="edu-tl-meta">
+                            <span class="edu-grade"><i class='bx bx-bar-chart-alt-2'></i> 83.4%</span>
+                            <span class="edu-board"><i class='bx bx-book'></i> KSEAB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="edu-tl-item reveal">
+                    <div class="edu-tl-left">
+                        <span class="edu-tl-year">2007 – 2019</span>
+                    </div>
+                    <div class="edu-tl-marker">
+                        <div class="edu-tl-dot"></div>
+                        <div class="edu-tl-line"></div>
+                    </div>
+                    <div class="edu-tl-content">
+                        <span class="edu-tl-badge">High School (ICSE)</span>
+                        <h4>Bethel International Public School</h4>
+                        <div class="edu-tl-meta">
+                            <span class="edu-grade"><i class='bx bx-bar-chart-alt-2'></i> 76.67%</span>
+                            <span class="edu-board"><i class='bx bx-book'></i> ICSE Board</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE =====  -->
     <section class="section experience-section" id="experience">
         <div class="container">
             <div class="section-label">
                 <span class="label-line"></span>
-                <span class="label-text">02 / EXPERIENCE</span>
+                <span class="label-text">03 / INTERNSHIPS</span>
             </div>
-            <h2 class="section-title">Work <span class="highlight">Experience</span></h2>
+            <h2 class="section-title">Internship <span class="highlight">Experience</span></h2>
 
             <div class="timeline">
                 <div class="timeline-item reveal">
@@ -289,7 +342,7 @@
         <div class="container">
             <div class="section-label">
                 <span class="label-line"></span>
-                <span class="label-text">03 / SKILLS</span>
+                <span class="label-text">04 / SKILLS</span>
             </div>
             <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
 
@@ -398,23 +451,41 @@
         <div class="container">
             <div class="section-label">
                 <span class="label-line"></span>
-                <span class="label-text">04 / CERTIFICATIONS</span>
+                <span class="label-text">05 / CERTIFICATIONS</span>
             </div>
             <h2 class="section-title">My <span class="highlight">Certifications</span></h2>
 
-            <div class="cert-grid">
+            <!-- Priority row: IIT + IBM highlighted -->
+            <div class="cert-highlight-row">
 
-                <div class="cert-card featured reveal">
-                    <div class="cert-badge"><i class='bx bx-star'></i> Featured</div>
+                <div class="cert-card cert-priority reveal">
+                    <div class="cert-badge iit-badge"><i class='bx bx-medal'></i> IIT Roorkee</div>
                     <div class="cert-img-wrap">
-                        <img src="images/cert-7.jpeg" alt="Advanced Certification in Cloud Azure & DevOps – IIT Roorkee & Intellipaat" loading="lazy" />
+                        <img src="images/cert-7.jpeg" alt="Advanced Certification in Cloud Azure &amp; DevOps – IIT Roorkee &amp; Intellipaat" loading="lazy" />
                         <div class="cert-overlay"><i class='bx bx-zoom-in'></i></div>
                     </div>
                     <div class="cert-info">
-                        <h4>Advanced Certification in Cloud Azure & DevOps</h4>
-                        <p class="cert-issuer"><i class='bx bx-building'></i> iHUB IIT Roorkee & Intellipaat</p>
+                        <h4>Advanced Certification in Cloud Azure &amp; DevOps</h4>
+                        <p class="cert-issuer"><i class='bx bx-building'></i> iHUB IIT Roorkee &amp; Intellipaat</p>
                     </div>
                 </div>
+
+                <div class="cert-card cert-priority reveal">
+                    <div class="cert-badge ibm-badge"><i class='bx bx-medal'></i> IBM &amp; IIT Guwahati</div>
+                    <div class="cert-img-wrap">
+                        <img src="images/cert-3.jpeg" alt="IBM Cloud Hosting &amp; Auto-Scaling" loading="lazy" />
+                        <div class="cert-overlay"><i class='bx bx-zoom-in'></i></div>
+                    </div>
+                    <div class="cert-info">
+                        <h4>IBM Cloud Hosting &amp; Auto-Scaling</h4>
+                        <p class="cert-issuer"><i class='bx bx-building'></i> IBM &amp; IIT Guwahati</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Standard certs grid -->
+            <div class="cert-grid">
 
                 <div class="cert-card reveal">
                     <div class="cert-img-wrap">
@@ -435,17 +506,6 @@
                     <div class="cert-info">
                         <h4>Azure DevOps</h4>
                         <p class="cert-issuer"><i class='bx bx-building'></i> Intellipaat</p>
-                    </div>
-                </div>
-
-                <div class="cert-card reveal">
-                    <div class="cert-img-wrap">
-                        <img src="images/cert-3.jpeg" alt="IBM Cloud Hosting & Auto-Scaling" loading="lazy" />
-                        <div class="cert-overlay"><i class='bx bx-zoom-in'></i></div>
-                    </div>
-                    <div class="cert-info">
-                        <h4>IBM Cloud Hosting & Auto-Scaling</h4>
-                        <p class="cert-issuer"><i class='bx bx-building'></i> IBM & IIT Guwahati</p>
                     </div>
                 </div>
 
@@ -502,7 +562,7 @@
         <div class="container">
             <div class="section-label">
                 <span class="label-line"></span>
-                <span class="label-text">05 / PROJECTS</span>
+                <span class="label-text">06 / PROJECTS</span>
             </div>
             <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
 
@@ -577,7 +637,7 @@
         <div class="container">
             <div class="section-label">
                 <span class="label-line"></span>
-                <span class="label-text">06 / CONTACT</span>
+                <span class="label-text">07 / CONTACT</span>
             </div>
             <h2 class="section-title">Let's Work <span class="highlight">Together</span></h2>
             <p class="contact-sub">I'm open to new opportunities in cloud infrastructure, DevOps, and cybersecurity. Let's connect!</p>
@@ -622,9 +682,7 @@
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="footer-inner">
-            <a href="#home" class="footer-logo">
-                <span class="logo-bracket">[</span>SG<span class="logo-dot">.</span><span class="logo-accent">cloud</span><span class="logo-bracket">]</span>
-            </a>
+            <a href="#home" class="footer-logo">SGP</a>
             <p class="footer-copy">&copy; 2026 Shashidhar Gowda P · Cloud & Infrastructure Engineer</p>
             <div class="footer-links">
                 <a href="https://github.com/p-shashidhar-gowda" target="_blank"><i class='bx bxl-github'></i></a>
