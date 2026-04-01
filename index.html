@@ -13,13 +13,9 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Canvas for particle/grid background -->
+    <!-- subtle grid canvas -->
     <canvas id="bg-canvas"></canvas>
 
-    <!-- Glow orbs -->
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
 
     <!-- ===== NAV ===== -->
     <nav class="navbar" id="navbar">
@@ -35,72 +31,62 @@
             <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
             <li><a href="#certifications" class="nav-link" data-section="certifications">Certs</a></li>
             <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
-            <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            <li><a href="#contact" class="nav-link nav-cta" data-section="contact">Contact</a></li>
         </ul>
     </nav>
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="terminal-tag">
-                <span class="terminal-prompt">~/portfolio</span>
-                <span class="terminal-cursor">▋</span>
-            </div>
-            <h1 class="hero-name">
-                <span class="name-first">Shashidhar</span>
-                <span class="name-last">Gowda P</span>
-            </h1>
-            <div class="hero-roles">
-                <span class="role-static">I'm a </span>
-                <span class="role-dynamic" id="role-dynamic">Cloud Engineer</span>
-            </div>
-            <p class="hero-bio">
-                Building secure, scalable cloud infrastructure at the intersection of 
-                <span class="accent-text">cloud</span>, <span class="accent-text">networking</span>, and <span class="accent-text">cybersecurity</span>.
-                Transforming complex architectures into resilient digital systems.
-            </p>
-            <div class="hero-actions">
-                <a href="#contact" class="btn btn-primary">
-                    <i class='bx bx-send'></i> Get In Touch
-                </a>
-                <a href="https://drive.google.com/file/d/1xvG84bjDZz3W2rRODUcOXxfDeE2tuqIx/view?usp=sharing" target="_blank" class="btn btn-outline">
-                    <i class='bx bx-download'></i> Resume
-                </a>
-            </div>
-            <div class="hero-socials">
-                <a href="https://github.com/p-shashidhar-gowda" target="_blank" class="social-link" aria-label="GitHub">
-                    <i class='bx bxl-github'></i>
-                </a>
-                <a href="https://www.linkedin.com/in/shashidhar-gowda-p" target="_blank" class="social-link" aria-label="LinkedIn">
-                    <i class='bx bxl-linkedin'></i>
-                </a>
-                <a href="mailto:shashidhar.gowda.p@outlook.com" class="social-link" aria-label="Email">
-                    <i class='bx bx-envelope'></i>
-                </a>
-            </div>
+        <div class="hero-eyebrow">Open to Opportunities</div>
+        <h1 class="hero-headline">
+            Cloud &amp; Infrastructure<br>
+            <span class="accent-word">Engineer.</span>
+        </h1>
+        <p class="hero-sub">
+            Building secure, scalable systems at the intersection of
+            cloud, networking, and cybersecurity.
+            Currently an Infrastructure &amp; Security Engineer Trainee at ATAS.
+        </p>
+        <div class="hero-socials">
+            <a href="https://github.com/p-shashidhar-gowda" target="_blank" class="social-link" aria-label="GitHub">
+                <i class='bx bxl-github'></i>
+            </a>
+            <a href="https://www.linkedin.com/in/shashidhar-gowda-p" target="_blank" class="social-link" aria-label="LinkedIn">
+                <i class='bx bxl-linkedin'></i>
+            </a>
+            <a href="mailto:shashidhar.gowda.p@outlook.com" class="social-link" aria-label="Email">
+                <i class='bx bx-envelope'></i>
+            </a>
         </div>
-        <div class="hero-visual">
-            <div class="network-graphic">
-                <div class="net-node node-central">
-                    <i class='bx bx-cloud'></i>
-                </div>
-                <div class="net-node node-1"><i class='bx bx-shield-alt-2'></i></div>
-                <div class="net-node node-2"><i class='bx bx-server'></i></div>
-                <div class="net-node node-3"><i class='bx bx-network-chart'></i></div>
-                <div class="net-node node-4"><i class='bx bx-layer'></i></div>
-                <div class="net-line line-1"></div>
-                <div class="net-line line-2"></div>
-                <div class="net-line line-3"></div>
-                <div class="net-line line-4"></div>
-                <div class="data-packet pkt-1"></div>
-                <div class="data-packet pkt-2"></div>
-                <div class="data-packet pkt-3"></div>
-                <div class="data-packet pkt-4"></div>
+        <div class="hero-actions">
+            <a href="#contact" class="btn btn-dark">
+                Get In Touch &rarr;
+            </a>
+            <a href="#about" class="btn btn-outline">
+                About Me
+            </a>
+        </div>
+        <div class="hero-stats">
+            <div>
+                <span class="hero-stat-num">7</span>
+                <span class="hero-stat-label">Certifications</span>
+            </div>
+            <div>
+                <span class="hero-stat-num">4+</span>
+                <span class="hero-stat-label">Projects Deployed</span>
+            </div>
+            <div>
+                <span class="hero-stat-num">1yr+</span>
+                <span class="hero-stat-label">Internship Experience</span>
+            </div>
+            <div>
+                <span class="hero-stat-num">2+</span>
+                <span class="hero-stat-label">Cloud Platforms</span>
             </div>
         </div>
         <div class="scroll-cue" id="scroll-cue">
-            <span>scroll</span>
             <div class="scroll-line"></div>
+            <span>scroll</span>
         </div>
     </section>
 
@@ -691,6 +677,19 @@
             </div>
         </div>
     </footer>
+
+    <!-- ===== RESUME POPUP ===== -->
+    <div class="resume-popup" id="resume-popup">
+        <div class="resume-card" id="resume-card">
+            <div class="resume-card-title">Resume</div>
+            <a href="Shashidhar_Cloud_Engineer.pdf" download class="resume-download-btn">
+                <i class='bx bx-download'></i> Download PDF
+            </a>
+        </div>
+        <button class="resume-fab" id="resume-fab" aria-label="Download Resume">
+            <i class='bx bx-file'></i>
+        </button>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -1,11 +1,11 @@
 /* ============================================================
    PORTFOLIO – Shashidhar Gowda P
-   script.js — Interactions, Canvas, Animations
+   script.js — Interactions & Animations
    ============================================================ */
 
 'use strict';
 
-/* ---- Canvas Grid / Particle Background ---- */
+/* ---- Canvas: very subtle dot grid (light theme) ---- */
 (function initCanvas() {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
@@ -18,66 +18,50 @@
   resize();
   window.addEventListener('resize', resize);
 
-  const CELL = 50;
+  const CELL = 55;
   let t = 0;
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     const cols = Math.ceil(canvas.width  / CELL) + 1;
     const rows = Math.ceil(canvas.height / CELL) + 1;
 
-    // Draw grid dots
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
         const x = c * CELL;
         const y = r * CELL;
-        const wave = Math.sin(c * 0.3 + t) * Math.cos(r * 0.3 + t * 0.7);
-        const alpha = 0.08 + 0.06 * wave;
+        const wave = Math.sin(c * 0.25 + t) * Math.cos(r * 0.25 + t * 0.6);
+        const alpha = 0.06 + 0.04 * wave;
         ctx.beginPath();
         ctx.arc(x, y, 1, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(56, 189, 248, ${Math.max(0.02, alpha)})`;
+        ctx.fillStyle = `rgba(0, 0, 0, ${Math.max(0.02, alpha)})`;
         ctx.fill();
       }
     }
-
-    // Faint horizontal scan line animation
-    const scanY = ((t * 60) % (canvas.height + 80)) - 40;
-    const grad = ctx.createLinearGradient(0, scanY - 30, 0, scanY + 30);
-    grad.addColorStop(0, 'transparent');
-    grad.addColorStop(0.5, 'rgba(56, 189, 248, 0.04)');
-    grad.addColorStop(1, 'transparent');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, scanY - 30, canvas.width, 60);
-
-    t += 0.006;
+    t += 0.004;
     requestAnimationFrame(draw);
   }
-
   draw();
 })();
 
 
 /* ---- Navbar: Scroll shrink + active section + scroll-cue hide ---- */
 (function initNavbar() {
-  const navbar   = document.getElementById('navbar');
-  const links    = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id], footer[id]');
+  const navbar    = document.getElementById('navbar');
+  const links     = document.querySelectorAll('.nav-link');
+  const sections  = document.querySelectorAll('section[id]');
   const scrollCue = document.getElementById('scroll-cue');
 
   function updateNav() {
-    const scrolled = window.scrollY > 60;
-    navbar.classList.toggle('scrolled', scrolled);
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
 
-    // Hide scroll cue once user scrolls
     if (scrollCue) {
       scrollCue.classList.toggle('hidden', window.scrollY > 80);
     }
 
     let current = '';
     sections.forEach(sec => {
-      const top = sec.offsetTop - 100;
-      if (window.scrollY >= top) current = sec.id;
+      if (window.scrollY >= sec.offsetTop - 110) current = sec.id;
     });
     links.forEach(link => {
       link.classList.toggle('active', link.dataset.section === current);
@@ -94,7 +78,6 @@
   const toggle  = document.getElementById('menu-toggle');
   const navlist = document.getElementById('navlist');
   const navbar  = document.getElementById('navbar');
-
   if (!toggle || !navlist) return;
 
   toggle.addEventListener('click', () => {
@@ -103,16 +86,13 @@
     toggle.setAttribute('aria-expanded', open);
   });
 
-  // Close on link click
   navlist.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navlist.classList.remove('open');
       toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', false);
     });
   });
 
-  // Close on outside click
   document.addEventListener('click', e => {
     if (navbar && !navbar.contains(e.target)) {
       navlist.classList.remove('open');
@@ -170,9 +150,8 @@
   if (!items.length) return;
 
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Stagger cards within the same container
         const siblings = [...entry.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
         const index = siblings.indexOf(entry.target);
         setTimeout(() => {
@@ -181,7 +160,7 @@
         obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
 
   items.forEach(item => obs.observe(item));
 })();
@@ -195,7 +174,6 @@
   const lbClose  = document.getElementById('lb-close');
   const lbPrev   = document.getElementById('lb-prev');
   const lbNext   = document.getElementById('lb-next');
-
   if (!lightbox) return;
 
   const certCards = [...document.querySelectorAll('.cert-card')];
@@ -223,18 +201,11 @@
     openLightbox(currentIndex);
   }
 
-  certCards.forEach((card, i) => {
-    card.addEventListener('click', () => openLightbox(i));
-  });
-
+  certCards.forEach((card, i) => card.addEventListener('click', () => openLightbox(i)));
   lbClose?.addEventListener('click', closeLightbox);
   lbPrev?.addEventListener('click',  () => navigate(-1));
   lbNext?.addEventListener('click',  () => navigate(1));
-
-  lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', e => {
     if (!lightbox.classList.contains('active')) return;
     if (e.key === 'Escape') closeLightbox();
@@ -244,54 +215,62 @@
 })();
 
 
-/* ---- Smooth hover glow on skill pills ---- */
-(function initPillGlow() {
-  document.querySelectorAll('.domain-card').forEach(card => {
-    const icon = card.querySelector('.domain-icon');
-    if (!icon) return;
-    const color = getComputedStyle(icon).color;
-    card.addEventListener('mouseenter', () => {
-      card.style.boxShadow = `0 10px 40px ${color.replace('rgb', 'rgba').replace(')', ', 0.08)')}`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.boxShadow = '';
-    });
+/* ---- Resume Popup ---- */
+(function initResumePopup() {
+  const fab  = document.getElementById('resume-fab');
+  const card = document.getElementById('resume-card');
+  if (!fab || !card) return;
+
+  let open = false;
+
+  fab.addEventListener('click', (e) => {
+    e.stopPropagation();
+    open = !open;
+    card.classList.toggle('open', open);
+    fab.querySelector('i').className = open ? 'bx bx-x' : 'bx bx-file';
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#resume-popup')) {
+      open = false;
+      card.classList.remove('open');
+      fab.querySelector('i').className = 'bx bx-file';
+    }
   });
 })();
 
 
 /* ---- Counter animation for stat numbers ---- */
 (function initCounters() {
-  const statCards = document.querySelectorAll('.stat-card');
+  const els = document.querySelectorAll('.stat-num, .hero-stat-num');
+  if (!els.length) return;
+
   const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const numEl = entry.target.querySelector('.stat-num');
-        if (!numEl || numEl.dataset.counted) return;
+        const numEl = entry.target;
+        if (numEl.dataset.counted) return;
         numEl.dataset.counted = '1';
-
-        const raw = numEl.textContent.trim();
-        const num = parseFloat(raw);
+        const raw    = numEl.textContent.trim();
+        const num    = parseFloat(raw);
         const suffix = raw.replace(/[\d.]/g, '');
         if (isNaN(num)) return;
 
-        let start = 0;
-        const duration = 1200;
+        const duration  = 1000;
         const startTime = performance.now();
-
         function update(now) {
-          const elapsed = now - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const ease = 1 - Math.pow(1 - progress, 3);
-          const current = Math.round(start + (num - start) * ease * 10) / 10;
+          const p = Math.min((now - startTime) / duration, 1);
+          const ease = 1 - Math.pow(1 - p, 3);
+          const current = Math.round(num * ease * 10) / 10;
           numEl.textContent = (current % 1 === 0 ? Math.round(current) : current) + suffix;
-          if (progress < 1) requestAnimationFrame(update);
+          if (p < 1) requestAnimationFrame(update);
         }
         requestAnimationFrame(update);
-        obs.unobserve(entry.target);
+        obs.unobserve(numEl);
       }
     });
   }, { threshold: 0.5 });
 
-  statCards.forEach(card => obs.observe(card));
+  els.forEach(el => obs.observe(el));
 })();
