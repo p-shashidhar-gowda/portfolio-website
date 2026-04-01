@@ -81,12 +81,23 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1px;
   color: var(--ink);
   text-transform: uppercase;
+}
+
+.nav-profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
 }
 
 .navlist {
@@ -140,12 +151,70 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 .hero {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
   padding: 8rem 3rem 5rem;
   max-width: 1080px;
   margin: 0 auto;
   position: relative;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 580px;
+  z-index: 2;
+}
+
+.hero-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.tech-drawings {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tux-highlight {
+  font-size: 8rem;
+  color: var(--ink);
+  z-index: 2;
+  animation: float-tux 4s ease-in-out infinite;
+}
+
+@keyframes float-tux {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.orbit-icon {
+  position: absolute;
+  font-size: 2.8rem;
+  color: var(--ink-dim);
+  opacity: 0;
+  transform: scale(0.5) translate(0, 0);
+  transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo);
+  top: 50%;
+  left: 50%;
+  margin-top: -1.4rem; /* half size */
+  margin-left: -1.4rem; /* half size */
+  z-index: 1;
+}
+
+.orbit-icon.active {
+  opacity: 1;
+  /* Specific translation gets set dynamically via JS */
+  transform: scale(1.1) translateY(-140px); 
 }
 
 .hero-eyebrow {
@@ -169,13 +238,12 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 
 .hero-headline {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.05;
   letter-spacing: -2px;
   color: var(--ink);
   margin-bottom: 1.8rem;
-  max-width: 700px;
 }
 .hero-headline .accent-word {
   color: var(--accent);
@@ -194,7 +262,7 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
   gap: 1rem;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.5rem;
 }
 
 /* ---------- BUTTONS ---------- */
@@ -1015,6 +1083,20 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 4rem;
+    padding-top: 7rem;
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tech-drawings {
+    transform: scale(0.85);
+  }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .cert-highlight-row { grid-template-columns: 1fr; }
   .hero-headline { letter-spacing: -1.5px; }
