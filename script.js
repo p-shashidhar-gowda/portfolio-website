@@ -276,33 +276,20 @@
 })();
 
 
-/* ---- Hero Tech Drawings (Orbiting Icons) ---- */
+/* ---- Hero Tech Drawings (Fading Icons) ---- */
 (function initHeroDrawings() {
-  const icons = document.querySelectorAll('.orbit-icon');
+  const icons = document.querySelectorAll('.hero-tech-icon');
   if (!icons.length) return;
   
   let current = 0;
   
   function switchIcon() {
     icons.forEach(i => i.classList.remove('active'));
-    const activeIcon = icons[current];
-    activeIcon.classList.add('active');
-    
-    // Pick a varied orbital position for the icon to pop out
-    // Avoiding exactly left/right layout blocks, keeping a nice orbit shape
-    const angle = (current * (Math.PI * 2 / icons.length)) + Math.random() * 0.5;
-    const radius = 110 + Math.random() * 40; // between 110px and 150px
-    const x = Math.cos(angle) * radius;
-    const y = Math.sin(angle) * radius;
-    
-    // Apply randomized but somewhat circular transform
-    activeIcon.style.transform = `scale(1.2) translate(${x}px, ${y}px)`;
+    icons[current].classList.add('active');
     
     current = (current + 1) % icons.length;
-    // keep each icon active for 2 seconds
-    setTimeout(switchIcon, 2000);
+    setTimeout(switchIcon, 2500);
   }
   
-  // start first one immediately
   switchIcon();
 })();
