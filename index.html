@@ -3,81 +3,200 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shashidhar Gowda P | Azure Cloud & DevOps Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Shashidhar Gowda P | Cloud & Infrastructure Engineer</title>
+    <meta name="description" content="Shashidhar Gowda P — Cloud & Infrastructure Engineer specializing in Azure, AWS, DevOps, Kubernetes, Networking, and Cybersecurity." />
+    <meta name="keywords" content="Cloud Engineer, Azure, AWS, DevOps, Kubernetes, Cybersecurity, Networking, Portfolio" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
-    
-    <nav class="navbar">
-        <a href="#" class="logo">SG<span>.Cloud</span></a>
-        <i class='bx bx-menu' id="menu-icon"></i>
-        <ul class="navlist">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#projects">Projects</a></li>
+    <!-- Canvas for particle/grid background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Glow orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- ===== NAV ===== -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="logo">
+            <span class="logo-bracket">[</span>SG<span class="logo-dot">.</span><span class="logo-accent">cloud</span><span class="logo-bracket">]</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="navlist" id="navlist">
+            <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+            <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+            <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+            <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+            <li><a href="#certifications" class="nav-link" data-section="certifications">Certs</a></li>
+            <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+            <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
         </ul>
     </nav>
 
-    <section class="home" id="home">
-        <div class="home-content appear">
-            <h1>Hi, I'm <span class="highlight">Shashidhar Gowda P</span></h1>
-            <h3 class="role">Azure Cloud & DevOps Engineer</h3>
-            <p>
-                Hands-on experience in designing, deploying, and managing scalable cloud infrastructure and CI/CD pipelines. Transforming ideas into robust digital architectures.
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="terminal-tag">
+                <span class="terminal-prompt">~/portfolio</span>
+                <span class="terminal-cursor">▋</span>
+            </div>
+            <h1 class="hero-name">
+                <span class="name-first">Shashidhar</span>
+                <span class="name-last">Gowda P</span>
+            </h1>
+            <div class="hero-roles">
+                <span class="role-static">I'm a </span>
+                <span class="role-dynamic" id="role-dynamic">Cloud Engineer</span>
+            </div>
+            <p class="hero-bio">
+                Building secure, scalable cloud infrastructure at the intersection of 
+                <span class="accent-text">cloud</span>, <span class="accent-text">networking</span>, and <span class="accent-text">cybersecurity</span>.
+                Transforming complex architectures into resilient digital systems.
             </p>
-            <div class="btn-group">
-                <a href="#contact" class="btn">Contact Me</a>
-                <a href="https://drive.google.com/file/d/1xvG84bjDZz3W2rRODUcOXxfDeE2tuqIx/view?usp=sharing" target="_blank" class="btn btn-secondary">Download Resume</a>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">
+                    <i class='bx bx-send'></i> Get In Touch
+                </a>
+                <a href="https://drive.google.com/file/d/1xvG84bjDZz3W2rRODUcOXxfDeE2tuqIx/view?usp=sharing" target="_blank" class="btn btn-outline">
+                    <i class='bx bx-download'></i> Resume
+                </a>
             </div>
-            
-            <div class="social-icons">
-                <a href="https://github.com/p-shashidhar-gowda" target="_blank"><i class='bx bxl-github'></i></a>
-                <a href="https://www.linkedin.com/in/shashidhar-gowda-p" target="_blank"><i class='bx bxl-linkedin' ></i></a>
-                <a href="mailto:shashidhar.gowda.p@outlook.com"><i class='bx bx-envelope' ></i></a>
+            <div class="hero-socials">
+                <a href="https://github.com/p-shashidhar-gowda" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class='bx bxl-github'></i>
+                </a>
+                <a href="https://www.linkedin.com/in/shashidhar-gowda-p" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class='bx bxl-linkedin'></i>
+                </a>
+                <a href="mailto:shashidhar.gowda.p@outlook.com" class="social-link" aria-label="Email">
+                    <i class='bx bx-envelope'></i>
+                </a>
             </div>
         </div>
-        
-        <div class="home-graphic appear delay">
-            <div class="abstract-shape">
-                <div class="ring"></div>
-                <div class="ring"></div>
-                <div class="ring"></div>
+        <div class="hero-visual">
+            <div class="network-graphic">
+                <div class="net-node node-central">
+                    <i class='bx bx-cloud'></i>
+                </div>
+                <div class="net-node node-1"><i class='bx bx-shield-alt-2'></i></div>
+                <div class="net-node node-2"><i class='bx bx-server'></i></div>
+                <div class="net-node node-3"><i class='bx bx-network-chart'></i></div>
+                <div class="net-node node-4"><i class='bx bx-layer'></i></div>
+                <div class="net-line line-1"></div>
+                <div class="net-line line-2"></div>
+                <div class="net-line line-3"></div>
+                <div class="net-line line-4"></div>
+                <div class="data-packet pkt-1"></div>
+                <div class="data-packet pkt-2"></div>
+                <div class="data-packet pkt-3"></div>
+                <div class="data-packet pkt-4"></div>
             </div>
+        </div>
+        <div class="scroll-cue">
+            <span>scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <section class="about section-padding" id="about">
-        <div class="section-header appear">
-            <h2>About <span class="highlight">Me</span></h2>
-        </div>
-        
-        <div class="about-container">
-            <div class="about-text appear">
-                <p>
-                    I am an aspiring Azure Cloud & DevOps Engineer with practical experience
-                    in cloud infrastructure, automation, and continuous integration and deployment.
-                    I focus on building secure, robust, and highly available architectures that drive modern applications.
-                </p>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class='bx bx-map'></i>
-                        <div>
-                            <strong>Location</strong>
-                            <span>Bengaluru</span>
+    <!-- ===== ABOUT ===== -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">01 / ABOUT</span>
+            </div>
+            <h2 class="section-title">About <span class="highlight">Me</span></h2>
+
+            <div class="about-grid">
+                <div class="about-text-col reveal">
+                    <p class="about-bio">
+                        I'm a <strong>Computer Science graduate</strong> with a strong foundation in cloud computing, DevOps, networking, and system administration. 
+                        Currently working as an <strong>Infrastructure and Security Engineer Trainee at ATAS</strong>, I build and secure scalable IT infrastructure.
+                    </p>
+                    <p class="about-bio">
+                        My objective is to apply technical expertise in cloud platforms, automation, and cybersecurity to build resilient systems that drive organizational growth and digital transformation.
+                    </p>
+                    <div class="about-info-grid">
+                        <div class="info-card">
+                            <i class='bx bx-map-pin'></i>
+                            <div>
+                                <span class="info-label">Location</span>
+                                <span class="info-value">Bengaluru, India</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <i class='bx bx-phone'></i>
+                            <div>
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">+91 9019884212</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <i class='bx bx-envelope'></i>
+                            <div>
+                                <span class="info-label">Email</span>
+                                <span class="info-value">shashidhar.gowda.p@outlook.com</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <i class='bx bx-briefcase'></i>
+                            <div>
+                                <span class="info-label">Status</span>
+                                <span class="info-value status-open">Open to Work</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class='bx bx-phone'></i>
-                        <div>
-                            <strong>Phone</strong>
-                            <span>+91 9019884212</span>
+                </div>
+                <div class="about-stats-col reveal">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class='bx bx-cloud-upload'></i></div>
+                        <div class="stat-info">
+                            <span class="stat-num">2+</span>
+                            <span class="stat-label">Cloud Platforms</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class='bx bx-trophy'></i></div>
+                        <div class="stat-info">
+                            <span class="stat-num">7</span>
+                            <span class="stat-label">Certifications</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class='bx bx-code-alt'></i></div>
+                        <div class="stat-info">
+                            <span class="stat-num">4+</span>
+                            <span class="stat-label">Projects Deployed</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class='bx bx-time'></i></div>
+                        <div class="stat-info">
+                            <span class="stat-num">1yr+</span>
+                            <span class="stat-label">Industry Experience</span>
+                        </div>
+                    </div>
+                    <!-- Education inside about -->
+                    <div class="education-mini reveal">
+                        <div class="edu-title">Education</div>
+                        <div class="edu-item">
+                            <span class="edu-degree">B.E. Computer Science</span>
+                            <span class="edu-meta">VTU · 2021–2025 · CGPA 7.54</span>
+                        </div>
+                        <div class="edu-item">
+                            <span class="edu-degree">Pre-University (PCMB)</span>
+                            <span class="edu-meta">Shree Swaminarayan PU · 83.4%</span>
+                        </div>
+                        <div class="edu-item">
+                            <span class="edu-degree">High School (ICSE)</span>
+                            <span class="edu-meta">Bethel International · 76.67%</span>
                         </div>
                     </div>
                 </div>
@@ -85,221 +204,433 @@
         </div>
     </section>
 
-    <section class="education section-padding" id="education">
-        <div class="section-header appear">
-            <h2>My <span class="highlight">Education</span></h2>
-        </div>
-        
-        <div class="timeline">
-            <div class="timeline-item appear">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2021 – 2025</div>
-                <div class="timeline-content">
-                    <h3>Bachelor of Engineering (Computer Science)</h3>
-                    <p>Visvesvaraya Technological University (VTU)</p>
-                    <span class="muted">CGPA: 7.54</span>
-                </div>
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="section experience-section" id="experience">
+        <div class="container">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">02 / EXPERIENCE</span>
             </div>
-            <div class="timeline-item appear">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2020 – 2021</div>
-                <div class="timeline-content">
-                    <h3>2nd Pre-University (PCMB)</h3>
-                    <p>Universal PU College</p>
-                    <span class="muted">83.4%</span>
+            <h2 class="section-title">Work <span class="highlight">Experience</span></h2>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="tl-marker">
+                        <div class="tl-dot"></div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <div class="tl-header">
+                            <div>
+                                <h3 class="tl-role">Infrastructure & Security Engineer Trainee</h3>
+                                <span class="tl-company">ATAS</span>
+                            </div>
+                            <span class="tl-period current-badge">Feb 2026 – Present</span>
+                        </div>
+                        <p class="tl-desc">Working on infrastructure design, security monitoring, and IT systems administration. Applying cloud and cybersecurity principles to maintain secure, reliable enterprise environments.</p>
+                        <div class="tl-tags">
+                            <span class="tag">Infrastructure</span>
+                            <span class="tag">Security</span>
+                            <span class="tag">Networking</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item appear">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2019 – 2020</div>
-                <div class="timeline-content">
-                    <h3>1st Pre-University (PCMB)</h3>
-                    <p>Shree Swaminarayan Gurukul Residential PU College</p>
-                    <span class="muted">76.33%</span>
+
+                <div class="timeline-item reveal">
+                    <div class="tl-marker">
+                        <div class="tl-dot"></div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <div class="tl-header">
+                            <div>
+                                <h3 class="tl-role">Azure Cloud & DevOps Intern</h3>
+                                <span class="tl-company">Intellipaat Software Solutions</span>
+                            </div>
+                            <span class="tl-period">Feb 2025 – Feb 2026</span>
+                        </div>
+                        <p class="tl-desc">Hands-on experience in designing, deploying, and managing scalable cloud infrastructure on Microsoft Azure. Built and maintained CI/CD pipelines using Azure DevOps and Jenkins.</p>
+                        <div class="tl-tags">
+                            <span class="tag">Azure</span>
+                            <span class="tag">DevOps</span>
+                            <span class="tag">CI/CD</span>
+                            <span class="tag">Terraform</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item appear">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2007 – 2019</div>
-                <div class="timeline-content">
-                    <h3>High School (ICSE)</h3>
-                    <p>Bethel International Public School</p>
-                    <span class="muted">76.67%</span>
+
+                <div class="timeline-item reveal">
+                    <div class="tl-marker">
+                        <div class="tl-dot"></div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <div class="tl-header">
+                            <div>
+                                <h3 class="tl-role">Cloud Application Developer Intern</h3>
+                                <span class="tl-company">IBM & IIT Guwahati</span>
+                            </div>
+                            <span class="tl-period">Nov 2024 – Feb 2025</span>
+                        </div>
+                        <p class="tl-desc">Developed and deployed cloud-native applications on IBM Cloud. Implemented auto-scaling strategies and load-balancing configurations for high availability workloads.</p>
+                        <div class="tl-tags">
+                            <span class="tag">IBM Cloud</span>
+                            <span class="tag">Cloud-Native</span>
+                            <span class="tag">Auto-Scaling</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="skills section-padding" id="skills">
-        <div class="section-header appear">
-            <h2>Technical <span class="highlight">Skills</span></h2>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-card appear">
-                <i class='bx bx-cloud'></i>
-                <h3>Cloud</h3>
-                <p>Azure, VMs, App Service, Storage, VNet, Load Balancer, Gateway, Monitor, AD</p>
+    <!-- ===== SKILLS ===== -->
+    <section class="section skills-section" id="skills">
+        <div class="container">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">03 / SKILLS</span>
             </div>
-            <div class="skill-card appear delay-1">
-                <i class='bx bx-git-repo-forked'></i>
-                <h3>DevOps</h3>
-                <p>Azure DevOps, Jenkins, CI/CD Pipelines</p>
-            </div>
-            <div class="skill-card appear delay-2">
-                <i class='bx bx-box'></i>
-                <h3>Containers</h3>
-                <p>Docker, Compose, Kubernetes, NGINX, Ingress</p>
-            </div>
-            <div class="skill-card appear delay-3">
-                <i class='bx bx-code-block'></i>
-                <h3>IaC</h3>
-                <p>Terraform, ARM Templates, YAML</p>
-            </div>
-            <div class="skill-card appear delay-4">
-                <i class='bx bx-bot'></i>
-                <h3>Automation</h3>
-                <p>Ansible, Bash Scripting</p>
-            </div>
-            <div class="skill-card appear delay-5">
-                <i class='bx bx-laptop'></i>
-                <h3>OS & Tools</h3>
-                <p>Linux (Ubuntu), Git, GitHub, VS Code</p>
+            <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
+
+            <div class="skills-domains">
+
+                <div class="domain-card reveal">
+                    <div class="domain-header">
+                        <div class="domain-icon cloud-icon"><i class='bx bx-cloud'></i></div>
+                        <h3>Cloud Platforms</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <span class="pill">Microsoft Azure</span>
+                        <span class="pill">AWS</span>
+                        <span class="pill">IBM Cloud</span>
+                        <span class="pill">Azure VMs</span>
+                        <span class="pill">App Service</span>
+                        <span class="pill">Azure Storage</span>
+                        <span class="pill">Azure Monitor</span>
+                        <span class="pill">Azure AD</span>
+                    </div>
+                </div>
+
+                <div class="domain-card reveal">
+                    <div class="domain-header">
+                        <div class="domain-icon devops-icon"><i class='bx bx-git-branch'></i></div>
+                        <h3>DevOps & CI/CD</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <span class="pill">Azure DevOps</span>
+                        <span class="pill">Jenkins</span>
+                        <span class="pill">Git & GitHub</span>
+                        <span class="pill">Docker</span>
+                        <span class="pill">Kubernetes</span>
+                        <span class="pill">Terraform</span>
+                        <span class="pill">Ansible</span>
+                        <span class="pill">YAML</span>
+                    </div>
+                </div>
+
+                <div class="domain-card reveal">
+                    <div class="domain-header">
+                        <div class="domain-icon net-icon"><i class='bx bx-network-chart'></i></div>
+                        <h3>Networking</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <span class="pill">TCP/IP</span>
+                        <span class="pill">DNS</span>
+                        <span class="pill">Subnetting</span>
+                        <span class="pill">Azure VNet</span>
+                        <span class="pill">Load Balancer</span>
+                        <span class="pill">App Gateway</span>
+                        <span class="pill">Traffic Manager</span>
+                        <span class="pill">NGINX Ingress</span>
+                    </div>
+                </div>
+
+                <div class="domain-card reveal">
+                    <div class="domain-header">
+                        <div class="domain-icon sec-icon"><i class='bx bx-shield-alt-2'></i></div>
+                        <h3>Cybersecurity</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <span class="pill">Firewall Config</span>
+                        <span class="pill">Encryption Basics</span>
+                        <span class="pill">nmap</span>
+                        <span class="pill">Network Security</span>
+                        <span class="pill">Threat Detection</span>
+                        <span class="pill">IAM & RBAC</span>
+                    </div>
+                </div>
+
+                <div class="domain-card reveal">
+                    <div class="domain-header">
+                        <div class="domain-icon code-icon"><i class='bx bx-code-alt'></i></div>
+                        <h3>Programming & Scripting</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <span class="pill">Python</span>
+                        <span class="pill">Bash Scripting</span>
+                        <span class="pill">PowerShell</span>
+                        <span class="pill">Linux (Ubuntu)</span>
+                        <span class="pill">ARM Templates</span>
+                    </div>
+                </div>
+
+                <div class="domain-card reveal">
+                    <div class="domain-header">
+                        <div class="domain-icon tools-icon"><i class='bx bx-wrench'></i></div>
+                        <h3>Tools & OS</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <span class="pill">Linux / Ubuntu</span>
+                        <span class="pill">VS Code</span>
+                        <span class="pill">Azure Portal</span>
+                        <span class="pill">Docker Compose</span>
+                        <span class="pill">Kubernetes CLI</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section class="certifications section-padding" id="certifications">
-        <div class="section-header appear">
-            <h2>My <span class="highlight">Certifications</span></h2>
-        </div>
-        <div class="cert-grid">
-            <div class="cert-card appear highlight-card">
-                <div class="cert-img">
-                    <img src="images/cert-7.jpeg" alt="Advanced Certification in Cloud Azure and DevOps" />
-                </div>
-                <div class="cert-info">
-                    <h4>Advanced Certification in Cloud Azure & DevOps</h4>
-                    <p>iHUB IIT Roorkee & Intellipaat</p>
-                </div>
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section class="section certs-section" id="certifications">
+        <div class="container">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">04 / CERTIFICATIONS</span>
             </div>
-            <div class="cert-card appear">
-                <div class="cert-img">
-                    <img src="images/cert-1.png" alt="Azure Administration AZ-104/AZ-103" />
+            <h2 class="section-title">My <span class="highlight">Certifications</span></h2>
+
+            <div class="cert-grid">
+
+                <div class="cert-card featured reveal">
+                    <div class="cert-badge"><i class='bx bx-star'></i> Featured</div>
+                    <div class="cert-img-wrap">
+                        <img src="images/cert-7.jpeg" alt="Advanced Certification in Cloud Azure & DevOps – IIT Roorkee & Intellipaat" loading="lazy" />
+                        <div class="cert-overlay"><i class='bx bx-zoom-in'></i></div>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Advanced Certification in Cloud Azure & DevOps</h4>
+                        <p class="cert-issuer"><i class='bx bx-building'></i> iHUB IIT Roorkee & Intellipaat</p>
+                    </div>
                 </div>
-                <div class="cert-info">
-                    <h4>Azure Administration AZ-104/AZ-103</h4>
-                    <p>Intellipaat</p>
+
+                <div class="cert-card reveal">
+                    <div class="cert-img-wrap">
+                        <img src="images/cert-1.png" alt="Azure Administration AZ-104" loading="lazy" />
+                        <div class="cert-overlay"><i class='bx bx-zoom-in'></i></div>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Azure Administration AZ-104/AZ-103</h4>
+                        <p class="cert-issuer"><i class='bx bx-building'></i> Intellipaat</p>
+                    </div>
                 </div>
-            </div>
-            <div class="cert-card appear">
-                <div class="cert-img">
-                    <img src="images/cert-2.png" alt="Azure Devops" />
+
+                <div class="cert-card reveal">
+                    <div class="cert-img-wrap">
+                        <img src="images/cert-2.png" alt="Azure DevOps Certification" loading="lazy" />
+                        <div class="cert-overlay"><i class='bx bx-zoom-in'></i></div>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Azure DevOps</h4>
+                        <p class="cert-issuer"><i class='bx bx-building'></i> Intellipaat</p>
+                    </div>
                 </div>
-                <div class="cert-info">
-                    <h4>Azure Devops</h4>
-                    <p>Intellipaat</p>
+
+                <div class="cert-card reveal">
+                    <div class="cert-img-wrap">
+                        <img src="images/cert-3.jpeg" alt="IBM Cloud Hosting & Auto-Scaling" loading="lazy" />
+                        <div class="cert-overlay"><i class='bx bx-zoom-in'></i></div>
+                    </div>
+                    <div class="cert-info">
+                        <h4>IBM Cloud Hosting & Auto-Scaling</h4>
+                        <p class="cert-issuer"><i class='bx bx-building'></i> IBM & IIT Guwahati</p>
+                    </div>
                 </div>
-            </div>
-            <div class="cert-card appear">
-                <div class="cert-img">
-                    <img src="images/cert-3.jpeg" alt="Project completion certification" />
+
+                <div class="cert-card reveal">
+                    <div class="cert-img-wrap">
+                        <img src="images/cert-6.jpeg" alt="Linux System Administration" loading="lazy" />
+                        <div class="cert-overlay"><i class='bx bx-zoom-in'></i></div>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Linux System Administration</h4>
+                        <p class="cert-issuer"><i class='bx bx-building'></i> Udemy</p>
+                    </div>
                 </div>
-                <div class="cert-info">
-                    <h4>Project Completion</h4>
-                    <p>IBM</p>
+
+                <div class="cert-card reveal">
+                    <div class="cert-img-wrap">
+                        <img src="images/cert-4.jpeg" alt="Cloud Application Development" loading="lazy" />
+                        <div class="cert-overlay"><i class='bx bx-zoom-in'></i></div>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Cloud Application Development</h4>
+                        <p class="cert-issuer"><i class='bx bx-building'></i> Rooman Technologies</p>
+                    </div>
                 </div>
-            </div>
-            <div class="cert-card appear">
-                <div class="cert-img">
-                    <img src="images/cert-6.jpeg" alt="Linux Administration" />
+
+                <div class="cert-card reveal">
+                    <div class="cert-img-wrap">
+                        <img src="images/cert-5.jpeg" alt="Life Skills Jeevan Kaushal 2.0" loading="lazy" />
+                        <div class="cert-overlay"><i class='bx bx-zoom-in'></i></div>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Life Skills Jeevan Kaushal 2.0</h4>
+                        <p class="cert-issuer"><i class='bx bx-building'></i> Wadhwani Foundation</p>
+                    </div>
                 </div>
-                <div class="cert-info">
-                    <h4>Linux Administration</h4>
-                    <p>Udemy</p>
-                </div>
-            </div>
-            <div class="cert-card appear">
-                <div class="cert-img">
-                    <img src="images/cert-4.jpeg" alt="Cloud Application Development" />
-                </div>
-                <div class="cert-info">
-                    <h4>Cloud Application Development</h4>
-                    <p>Rooman</p>
-                </div>
-            </div>
-            <div class="cert-card appear">
-                <div class="cert-img">
-                    <img src="images/cert-5.jpeg" alt="Lifes Skills Jeevan Kaushal 2.0" />
-                </div>
-                <div class="cert-info">
-                    <h4>Lifes Skills Jeevan Kaushal 2.0</h4>
-                    <p>Waadhwani</p>
-                </div>
+
             </div>
         </div>
     </section>
 
-    <section class="projects section-padding" id="projects">
-        <div class="section-header appear">
-            <h2>Featured <span class="highlight">Projects</span></h2>
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lb-close"><i class='bx bx-x'></i></button>
+        <button class="lightbox-prev" id="lb-prev"><i class='bx bx-chevron-left'></i></button>
+        <button class="lightbox-next" id="lb-next"><i class='bx bx-chevron-right'></i></button>
+        <div class="lightbox-inner">
+            <img id="lb-img" src="" alt="" />
+            <p id="lb-caption"></p>
         </div>
-        
-        <div class="project-grid">
-            <div class="project-card appear">
-                <div class="project-content">
+    </div>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section projects-section" id="projects">
+        <div class="container">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">05 / PROJECTS</span>
+            </div>
+            <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+
+            <div class="project-grid">
+
+                <div class="project-card reveal">
+                    <div class="project-top">
+                        <i class='bx bx-globe project-icon'></i>
+                        <a href="https://github.com/p-shashidhar-gowda/multi-region-web-hosting-using-azure.git" target="_blank" class="proj-link-icon"><i class='bx bx-link-external'></i></a>
+                    </div>
                     <h4>Multi-Region Azure Web Hosting</h4>
-                    <p>Designed and deployed a multi-region web hosting architecture on Azure using Traffic Manager and Application Gateway to ensure high availability and fault tolerance.</p>
-                    <div class="tech-stack">
-                        <span>Azure</span><span>Traffic Manager</span><span>App Gateway</span>
+                    <p>Designed a high-availability multi-region Azure architecture using Traffic Manager and Application Gateway for intelligent routing. Implemented failover strategies, custom routing rules, and health probes for fault tolerance.</p>
+                    <div class="proj-tags">
+                        <span>Azure</span><span>Traffic Manager</span><span>App Gateway</span><span>High Availability</span>
                     </div>
                 </div>
-                <a href="https://github.com/p-shashidhar-gowda/multi-region-web-hosting-using-azure.git" target="_blank" class="project-link"><i class='bx bx-link-external'></i> View Project</a>
-            </div>
 
-            <div class="project-card appear">
-                <div class="project-content">
+                <div class="project-card reveal">
+                    <div class="project-top">
+                        <i class='bx bx-cloud-upload project-icon'></i>
+                        <span class="proj-link-icon muted-link"><i class='bx bx-lock'></i></span>
+                    </div>
                     <h4>Scalable Web Hosting on IBM Cloud</h4>
-                    <p>Built a scalable web application with auto-scaling and load balancing to handle varying traffic loads efficiently.</p>
-                    <div class="tech-stack">
-                        <span>IBM Cloud</span><span>Auto Scaling</span><span>Load Balancing</span>
+                    <p>Built a scalable cloud hosting solution using auto-scaling groups and load balancing to efficiently handle dynamic traffic. Configured dynamic scaling policies and optimized performance for high availability and cost efficiency.</p>
+                    <div class="proj-tags">
+                        <span>IBM Cloud</span><span>Auto-Scaling</span><span>Load Balancing</span><span>Cloud-Native</span>
                     </div>
                 </div>
-            </div>
 
-            <div class="project-card appear">
-                <div class="project-content">
+                <div class="project-card reveal">
+                    <div class="project-top">
+                        <i class='bx bx-layer project-icon'></i>
+                        <span class="proj-link-icon muted-link"><i class='bx bx-lock'></i></span>
+                    </div>
                     <h4>Kubernetes & NGINX Deployment</h4>
-                    <p>Deployed NGINX on a Kubernetes cluster with multiple replicas, configured services and ingress for traffic management.</p>
-                    <div class="tech-stack">
-                        <span>Kubernetes</span><span>Docker</span><span>NGINX</span><span>YAML</span>
+                    <p>Deployed and managed a 3-node Kubernetes cluster running containerized NGINX apps with multiple replicas. Configured NodePort, ClusterIP, and Ingress controllers for efficient traffic routing and external access.</p>
+                    <div class="proj-tags">
+                        <span>Kubernetes</span><span>Docker</span><span>NGINX</span><span>Ingress</span>
                     </div>
                 </div>
-            </div>
 
-            <div class="project-card appear">
-                <div class="project-content">
-                    <h4>Portfolio Website</h4>
-                    <p>Created a personal portfolio website for an Azure Cloud & DevOps Engineer role using HTML and CSS to showcase skills and projects.</p>
-                    <div class="tech-stack">
-                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                <div class="project-card reveal">
+                    <div class="project-top">
+                        <i class='bx bx-shield-quarter project-icon'></i>
+                        <span class="proj-link-icon muted-link"><i class='bx bx-lock'></i></span>
+                    </div>
+                    <h4>Phishing Website Detection (ML)</h4>
+                    <p>Developed a machine learning model in Python to classify phishing vs legitimate websites using feature extraction and preprocessing. Improved detection accuracy with ensemble methods for enhanced cybersecurity threat intelligence.</p>
+                    <div class="proj-tags">
+                        <span>Python</span><span>Machine Learning</span><span>Cybersecurity</span><span>ML Classification</span>
                     </div>
                 </div>
-                <a href="https://github.com/p-shashidhar-gowda/portfolio.git" target="_blank" class="project-link"><i class='bx bx-link-external'></i> View Project</a>
+
+                <div class="project-card reveal">
+                    <div class="project-top">
+                        <i class='bx bx-desktop project-icon'></i>
+                        <a href="https://github.com/p-shashidhar-gowda/portfolio.git" target="_blank" class="proj-link-icon"><i class='bx bx-link-external'></i></a>
+                    </div>
+                    <h4>Portfolio Website</h4>
+                    <p>Designed and deployed a professional portfolio website showcasing cloud engineering skills, certifications, and projects. Built with modern HTML/CSS/JS with responsive design and hosted on GitHub Pages.</p>
+                    <div class="proj-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <footer id="contact">
-        <div class="footer-content appear">
-            <h2>Let's Work Together</h2>
-            <p>Email me at <a href="mailto:shashidhar.gowda.p@outlook.com" class="highlight">shashidhar.gowda.p@outlook.com</a></p>
-            <div class="social-icons">
-                <a href="https://github.com/p-shashidhar-gowda" target="_blank"><i class='bx bxl-github'></i></a>
-                <a href="https://www.linkedin.com/in/shashidhar-gowda-p" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+    <!-- ===== CONTACT ===== -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">06 / CONTACT</span>
+            </div>
+            <h2 class="section-title">Let's Work <span class="highlight">Together</span></h2>
+            <p class="contact-sub">I'm open to new opportunities in cloud infrastructure, DevOps, and cybersecurity. Let's connect!</p>
+
+            <div class="contact-grid">
+                <a href="mailto:shashidhar.gowda.p@outlook.com" class="contact-card reveal">
+                    <div class="contact-icon"><i class='bx bx-envelope'></i></div>
+                    <div class="contact-detail">
+                        <span class="contact-type">Email</span>
+                        <span class="contact-value">shashidhar.gowda.p@outlook.com</span>
+                    </div>
+                    <i class='bx bx-chevron-right contact-arrow'></i>
+                </a>
+                <a href="https://www.linkedin.com/in/shashidhar-gowda-p" target="_blank" class="contact-card reveal">
+                    <div class="contact-icon linkedin-icon"><i class='bx bxl-linkedin'></i></div>
+                    <div class="contact-detail">
+                        <span class="contact-type">LinkedIn</span>
+                        <span class="contact-value">shashidhar-gowda-p</span>
+                    </div>
+                    <i class='bx bx-chevron-right contact-arrow'></i>
+                </a>
+                <a href="https://github.com/p-shashidhar-gowda" target="_blank" class="contact-card reveal">
+                    <div class="contact-icon github-icon"><i class='bx bxl-github'></i></div>
+                    <div class="contact-detail">
+                        <span class="contact-type">GitHub</span>
+                        <span class="contact-value">p-shashidhar-gowda</span>
+                    </div>
+                    <i class='bx bx-chevron-right contact-arrow'></i>
+                </a>
+                <a href="tel:+919019884212" class="contact-card reveal">
+                    <div class="contact-icon phone-icon"><i class='bx bx-phone'></i></div>
+                    <div class="contact-detail">
+                        <span class="contact-type">Phone</span>
+                        <span class="contact-value">+91 9019884212</span>
+                    </div>
+                    <i class='bx bx-chevron-right contact-arrow'></i>
+                </a>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2026 Shashidhar Gowda P. Designed dynamically with UI/UX passion.</p>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="#home" class="footer-logo">
+                <span class="logo-bracket">[</span>SG<span class="logo-dot">.</span><span class="logo-accent">cloud</span><span class="logo-bracket">]</span>
+            </a>
+            <p class="footer-copy">&copy; 2026 Shashidhar Gowda P · Cloud & Infrastructure Engineer</p>
+            <div class="footer-links">
+                <a href="https://github.com/p-shashidhar-gowda" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com/in/shashidhar-gowda-p" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="mailto:shashidhar.gowda.p@outlook.com"><i class='bx bx-envelope'></i></a>
+            </div>
         </div>
     </footer>
 
