@@ -196,8 +196,8 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 
 .hero-glass-visual {
   position: relative;
-  width: 450px;
-  height: 450px;
+  width: 440px;
+  height: 440px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,7 +207,7 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
   background: linear-gradient(135deg, var(--accent), #d8b4fe);
   border-radius: 50%;
   filter: blur(50px);
-  opacity: 0.6;
+  opacity: 0.5;
   animation: pulse-orb 6s infinite alternate;
 }
 @keyframes pulse-orb {
@@ -220,44 +220,40 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.05);
-  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+  border-radius: 14px;
   padding: 0.6rem 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--ink);
-  animation: float 5s infinite ease-in-out alternate;
-  white-space: nowrap;
+  animation: float 4s infinite ease-in-out alternate;
 }
-.glass-card i { font-size: 1.25rem; }
+.glass-card i { font-size: 1.3rem; }
 
-.highlight-card {
-  padding: 0.8rem 1.4rem;
-  font-size: 0.95rem;
-  border-color: rgba(124, 58, 237, 0.4);
-  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.15);
-  z-index: 10;
+/* Positions */
+.gc-1 { top: 5%; left: 35%; animation-delay: 0s; }
+.gc-2 { top: 18%; right: -2%; animation-delay: -1s; }
+.gc-3 { top: 42%; right: -12%; animation-delay: -2.5s; }
+.gc-4 { bottom: 18%; right: 2%; animation-delay: -0.5s; }
+.gc-5 { bottom: 0%; left: 55%; animation-delay: -3s; }
+.gc-6 { bottom: 5%; left: 15%; animation-delay: -1.5s; }
+.gc-7 { bottom: 30%; left: -8%; animation-delay: -0.8s; }
+.gc-8 { top: 38%; left: -14%; animation-delay: -2s; }
+.gc-9 { top: 12%; left: 2%; animation-delay: -3.5s; }
+.gc-10 { top: 45%; left: 38%; animation-delay: -1.2s; z-index: 10; padding: 0.8rem 1.4rem; font-size: 0.9rem; background: rgba(255,255,255,0.7); }
+.gc-11 { top: 75%; left: 38%; animation-delay: -2.2s; }
+
+.glass-card.highlight {
+  border: 1.5px solid #FCC624;
+  box-shadow: 0 10px 30px rgba(252, 198, 36, 0.25);
 }
-.highlight-card i { font-size: 1.6rem; }
-
-.gc-linux { top: 40%; left: 36%; animation-delay: 0s; }
-.gc-1  { top: 8%; left: 18%; animation-delay: -1s; }
-.gc-2  { top: 15%; right: 5%; animation-delay: -2.5s; }
-.gc-3  { top: 40%; right: -5%; animation-delay: -4s; }
-.gc-4  { bottom: 25%; right: 0%; animation-delay: -1.5s; }
-.gc-5  { bottom: 5%; right: 25%; animation-delay: -3s; }
-.gc-6  { bottom: 12%; left: 12%; animation-delay: -0.5s; }
-.gc-7  { bottom: 35%; left: -6%; animation-delay: -3.5s; }
-.gc-8  { top: 28%; left: -2%; animation-delay: -2s; }
-.gc-9  { top: -2%; right: 35%; animation-delay: -4.5s; }
-.gc-10 { bottom: -4%; left: 42%; animation-delay: -1.2s; }
 
 @keyframes float {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-12px); }
+  100% { transform: translateY(-10px); }
 }
 
 .hero-eyebrow {
