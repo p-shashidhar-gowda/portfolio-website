@@ -107,11 +107,27 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
   align-items: center;
 }
 .nav-link {
+  position: relative;
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.5px;
   color: var(--ink-dim);
-  transition: color 0.2s;
+  transition: color 0.3s var(--ease-spring);
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s var(--ease-spring);
+}
+.nav-link:not(.nav-cta):hover::after,
+.nav-link.active:not(.nav-cta):after {
+  width: 100%;
 }
 .nav-link:hover,
 .nav-link.active { color: var(--ink); }
@@ -119,15 +135,16 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 .nav-cta {
   background: var(--ink);
   color: #fff !important;
-  padding: 0.5rem 1.2rem;
+  padding: 0.55rem 1.3rem;
   border-radius: 999px;
   font-size: 0.82rem;
   font-weight: 600;
-  transition: background 0.2s, transform 0.2s;
+  transition: all 0.3s var(--ease-spring);
 }
 .nav-cta:hover {
-  background: #333;
-  transform: translateY(-1px);
+  background: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px var(--accent-mid);
 }
 
 /* Hamburger */
@@ -177,7 +194,7 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
   z-index: 1;
 }
 
-.tech-drawings {
+.hero-glass-visual {
   position: relative;
   width: 320px;
   height: 320px;
@@ -185,24 +202,43 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
   justify-content: center;
   align-items: center;
 }
-
-.hero-tech-icon {
-  position: absolute;
-  font-size: 11rem;
-  color: var(--ink);
-  opacity: 0;
-  transform: scale(0.85);
-  transition: opacity 0.8s var(--ease-expo), transform 0.8s var(--ease-expo);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
+.glass-orb {
+  width: 180px; height: 180px;
+  background: linear-gradient(135deg, var(--accent), #d8b4fe);
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.6;
+  animation: pulse-orb 6s infinite alternate;
 }
+@keyframes pulse-orb {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+.glass-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--ink);
+  animation: float 5s infinite ease-in-out alternate;
+}
+.glass-card i { font-size: 1.4rem; color: var(--accent); }
+.gc-1 { top: 10%; right: -10%; animation-delay: 0s; }
+.gc-2 { bottom: 10%; left: -5%; animation-delay: -2s; }
+.gc-3 { top: 40%; left: -20%; animation-delay: -4s; }
 
-.hero-tech-icon.active {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 2;
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
 }
 
 .hero-eyebrow {
